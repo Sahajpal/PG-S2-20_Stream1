@@ -2,7 +2,6 @@ data/raw/
 data/earth_engine_exports/
 data/raw/Street_Trees.csv
 models/*.json
-outputs/*.png
 .env
 *.key
 *api_key*

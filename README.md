@@ -17,7 +17,7 @@ Stream 1 builds a probabilistic, risk-ranking model of vegetation-related outage
 
 **Method:** Predicted "Elevated Risk" (Unley's Moderate + High risk categories combined) vs. "Low" from structural/species attributes. Only **1.18% of trees are labelled elevated risk** — severe class imbalance, handled explicitly via `scale_pos_weight` rather than ignored.
 
-![Risk classifier results](outputs/01_risk_classifier_results.png)
+![Risk classifier results](outputs/stream1_model_results.png)
 *Feature importance, ROC curve, and precision-recall curve for the Unley risk classifier.*
 
 | Metric | Value |
@@ -39,7 +39,7 @@ Top features: structural condition, species genus (Eucalyptus, Lophostemon), hea
 
 **Why:** Direct supervisor suggestion — check whether NDVI correlates with the 2022 LiDAR-derived canopy height data, since both are publicly accessible, making this fully unblocked ahead of any further data release.
 
-![NDVI vs canopy height correlation](outputs/02_ndvi_lidar_correlation.png)
+![NDVI vs canopy height correlation](outputs/ndvi_vs_canopy_height_2022.png)
 *NDVI vs. canopy height across 9,007,164 real pixel pairs, full metro Adelaide, 2022.*
 
 | Metric | Value |
@@ -60,7 +60,7 @@ Top features: structural condition, species genus (Eucalyptus, Lophostemon), hea
 
 **Features:** NDVI, EVI, NDMI (Sentinel-2 optical) + VV, VH (Sentinel-1 SAR, added to address NDVI's saturation at high canopy heights).
 
-![Height regression results](outputs/03_height_regression_results.png)
+![Height regression results](outputs/height_regression_results.png)
 *Predicted vs. actual height and feature importance, full metro Adelaide, validated at scale (2,251,769 held-out pixels).*
 
 | | Pilot (small area) | Full metro Adelaide |
@@ -85,7 +85,7 @@ Top features: structural condition, species genus (Eucalyptus, Lophostemon), hea
 
 **Why:** Stream 1's design calls for height *and* species output. Used real Unley tree records (species + exact coordinates) as ground truth, sampling the same satellite feature stack at each tree's location.
 
-![Species classification results](outputs/04_species_classification_results.png)
+![Species classification results](outputs/species_classification_results.png)
 *Confusion matrix and feature importance for genus classification from satellite bands.*
 
 | Metric | Value |
